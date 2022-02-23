@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi tiền tệ</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Amount</th>
+            <th>From Currency</th>
+            <th>To Currency</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td><input type="number" id="amount"></td>
+            <td>
+                <select id="from" onchange="clickfunction()">
+                    <option value="Vietnam">VietNam</option>
+                    <option value="USD">USD</option>
+                </select>
+            </td>
+            <td>
+                <select id="to" onchange="clickfunction()">
+                    <option value="Vietnam">VietNam</option>
+                    <option value="USD">USD</option>
+                </select>
+            </td>
+            <td>
+                <button onclick="clickfunction()">Convert</button>
+            </td>
+        </tr>
+    </table>
+
+<h1 id="rs" onclick="clickfunction()"></h1>
+<script>
+    function clickfunction() {
+
+        let v = document.getElementById("from").value;
+        let r = document.getElementById("to").value;
+        let c = +document.getElementById("amount").value;
+        let x;
+
+        // if (v === "USD") {
+        //     if (r === "USD") {
+        //         x = c
+        //     }else {
+        //         x = c*23000
+        //     }
+        // }else {
+        //     if (r === "USD"){
+        //         x = c/23000
+        //     }else {x=c}
+        // }
+        if (v === r){
+            x=c
+        }else {
+            if(v==="USD"){
+                x=c*23000
+            }else {x=c/23000}
+        }
+        document.getElementById("rs").innerHTML = ("Result: " + x)
+    }
+</script>
+</body>
+</html>
